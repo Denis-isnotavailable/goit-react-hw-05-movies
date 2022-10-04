@@ -8,8 +8,8 @@ export const Header = () => {
         <Container>
             <HeaderStyled>
                 <nav>
-                    <LinkStyled to="/">Home</LinkStyled>
-                    <LinkStyled to="/movies">Movies</LinkStyled>
+                    <LinkStyled to="/" end>Home</LinkStyled>
+                    <LinkStyled to="movies">Movies</LinkStyled>
                 </nav>                
             </HeaderStyled>
             <Outlet />

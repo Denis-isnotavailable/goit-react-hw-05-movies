@@ -24,4 +24,9 @@ export const LinkStyled = styled(NavLink)`
   &.active {
     color: #ff0000;
   }
+
+  :hover:not(.active),
+  :focus:not(.active) {
+    color: #0000ff;
+  }
 `;
