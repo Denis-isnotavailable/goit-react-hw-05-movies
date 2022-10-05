@@ -25,13 +25,6 @@ export const BackLinkStyled = styled(Link)`
     }
 `;
 
-export const MainInfo = styled.div`
-    display: flex;
-    gap: 16px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #ccc8c8;    
-`;
-
 export const AdditionalInfo = styled.ul`   
     padding-bottom: 12px;
     border-bottom: 2px solid #ccc8c8;

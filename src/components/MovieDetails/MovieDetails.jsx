@@ -1,7 +1,8 @@
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { MovieDetailsStyled, BackLinkStyled, MainInfo, AdditionalInfo } from "./MovieDetails.styled";
+import { MovieDetailsStyled, BackLinkStyled, AdditionalInfo } from "./MovieDetails.styled";
+import { MovieMainInfo } from "components/MovieMainInfo/MovieMainInfo";
 
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
@@ -36,19 +37,8 @@ export const MovieDetails = () => {
         <main>
             <MovieDetailsStyled>
                 <BackLinkStyled to={backLink} >Go back</BackLinkStyled>
-                <MainInfo>
-                    <div>
-                        <img src={movie.poster} alt={movie.title} width="240" height="320" />
-                    </div>
-                    <div>
-                        <h1>{movie.title}</h1>
-                        <p>User Score: { movie.score }%</p>
-                        <h2>Overview</h2>
-                        <p>{movie.overview}</p>
-                        <h3>Genres</h3>
-                        <p>{movie.genres}</p>                        
-                    </div>                    
-                </MainInfo>
+
+                <MovieMainInfo poster={movie.poster} title={movie.title} score={movie.score} overview={movie.overview} genres={movie.genres}/>              
 
                 <h2 style={{ marginTop: "12px" }}>Additional information</h2>
                 <AdditionalInfo>
