@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
-export const MovieItemStyled = styled.div`
+export const MovieDetailsStyled = styled.div`
     padding: 40px;
 
     h1, h2, h3 {

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
-import { HomeStyled } from "components/Home/Home.styled";
 import { Link, useLocation } from "react-router-dom";
+import { HomeStyled } from "components/Home/Home.styled";
 
 
 const API_URL = "https://api.themoviedb.org/3/";
@@ -17,7 +17,7 @@ export const Home = () => {
         function fetchMovie() {
             fetch(url).then(response => response.json()).then(data => {                
                 setMovies(data.results.map(result => ({ id: result.id, title: result.title })))
-            }).catch(error => console.log);
+            }).catch(error => console.log(error));
         }
 
         fetchMovie();
