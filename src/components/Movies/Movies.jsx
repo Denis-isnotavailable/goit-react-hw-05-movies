@@ -1,15 +1,17 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useState, useEffect} from "react";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { MoviesStyled } from "./Movies.styled";
 
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
 
 export const Movies = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const queryParam = searchParams.get("query");
     const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState("");
-    const location = useLocation();    
-
+    const [query, setQuery] = useState(queryParam ? queryParam : "");
+    const location = useLocation();
+    
 
     useEffect(() => {
         const url = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`;
@@ -31,6 +33,7 @@ export const Movies = () => {
     const handleSubbmit = e => {
         e.preventDefault();        
         setQuery(e.target.query.value);
+        setSearchParams({ query: e.target.query.value });
         e.target.query.value = "";
     }
 
@@ -46,7 +49,7 @@ export const Movies = () => {
             <ul>
                 {movies.map(({ id, title }) => {
                     return (<li key={id}>
-                        <Link to={`${id}`} state={{ from: location }}>                            
+                        <Link to={`${id}`} search={{querySerch: `query=${query}`}} state={{ from: location }}>                            
                             {title}
                         </Link>
                     </li>)

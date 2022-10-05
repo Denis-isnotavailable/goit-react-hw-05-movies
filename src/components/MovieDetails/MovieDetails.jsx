@@ -10,9 +10,8 @@ export const MovieDetails = () => {
     const [movie, setMovie] = useState({});
     const { id } = useParams();
     const location = useLocation();
-    const backLink = location.state?.from ?? "/movies";
+    const backLink = location.state?.from ?? "/movies"; 
     
-    // console.log(backLink);
     // console.log(location);
 
     useEffect(() => {
@@ -36,7 +35,7 @@ export const MovieDetails = () => {
     return (
         <main>
             <MovieDetailsStyled>
-                <BackLinkStyled to={backLink}>Go back</BackLinkStyled>
+                <BackLinkStyled to={backLink} >Go back</BackLinkStyled>
                 <MainInfo>
                     <div>
                         <img src={movie.poster} alt={movie.title} width="240" height="320" />
