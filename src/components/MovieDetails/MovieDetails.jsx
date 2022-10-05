@@ -1,19 +1,17 @@
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Suspense } from "react";
 import { MovieDetailsStyled, BackLinkStyled, AdditionalInfo } from "./MovieDetails.styled";
 import { MovieMainInfo } from "components/MovieMainInfo/MovieMainInfo";
 
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const [movie, setMovie] = useState({});
     const { id } = useParams();
     const location = useLocation();
-    const backLink = location.state?.from ?? "/movies"; 
-    
-    // console.log(location);
+    const backLink = location.state?.from ?? "/movies";    
 
     useEffect(() => {
         const urlDetails = `${API_URL}movie/${id}?api_key=${API_KEY}&language=en-US`;        
@@ -46,8 +44,13 @@ export const MovieDetails = () => {
                     <li><Link to="reviews" state={{ from: backLink }}>Reviews</Link></li>           
                 </AdditionalInfo>
 
-                <Outlet />
+                <Suspense fallback={<div>Loading page...</div>} >
+                    <Outlet />
+                </Suspense>
+                
             </MovieDetailsStyled>            
         </main>
     );
 }
+
+export default MovieDetails;

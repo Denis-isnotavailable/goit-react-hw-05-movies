@@ -5,7 +5,7 @@ import { MoviesStyled } from "./Movies.styled";
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
 
-export const Movies = () => {
+const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const queryParam = searchParams.get("query");
     const [movies, setMovies] = useState([]);
@@ -22,7 +22,7 @@ export const Movies = () => {
         
         function fetchMovie() {
             fetch(url).then(response => response.json()).then(data => {
-                setMovies(data.results.map(result => ({ id: result.id, title: result.title })))
+                setMovies(data.results.map(({ id, title }) => ({ id: id, title: title })))
             }).catch(error => console.log(error));
         }
 
@@ -30,9 +30,10 @@ export const Movies = () => {
     }, [query]);
 
     const handleSubbmit = e => {
-        e.preventDefault();        
-        setQuery(e.target.query.value);
-        setSearchParams({ query: e.target.query.value });
+        e.preventDefault();
+        const value = e.target.query.value;
+        setQuery(value);
+        setSearchParams({ query: value });
         e.target.query.value = "";
     }
 
@@ -57,3 +58,5 @@ export const Movies = () => {
         </MoviesStyled>
     );
 }
+
+export default Movies;

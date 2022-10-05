@@ -7,7 +7,7 @@ const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
 const placeHolder = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
-export const Cast = () => {
+const Cast = () => {
     const [actors, setActors] = useState([]);
     const { id } = useParams();
     
@@ -44,3 +44,5 @@ export const Cast = () => {
         </CastStyled>        
     );
 }
+
+export default Cast;

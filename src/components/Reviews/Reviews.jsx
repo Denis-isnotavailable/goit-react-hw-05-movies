@@ -5,7 +5,7 @@ import { ReviewsStyled, ReviewsItemStyled } from "./Reviews.styled";
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
 
-export const Reviews = () => {
+const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     const { id } = useParams();
 
@@ -43,3 +43,6 @@ export const Reviews = () => {
         </>         
     );
 }
+
+
+export default Reviews;

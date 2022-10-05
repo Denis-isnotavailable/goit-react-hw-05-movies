@@ -7,7 +7,7 @@ import { HomeStyled } from "components/Home/Home.styled";
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "afc22cf5c573169849cabd6217d3b7d3";
 
-export const Home = () => {
+const Home = () => {
     const [movies, setMovies] = useState([]);
     const location = useLocation();
 
@@ -39,3 +39,5 @@ export const Home = () => {
         </HomeStyled>
     );
 }
+
+export default Home;
