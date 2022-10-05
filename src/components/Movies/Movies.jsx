@@ -21,8 +21,7 @@ export const Movies = () => {
         }
         
         function fetchMovie() {
-            fetch(url).then(response => response.json()).then(data => {   
-                // console.log(data);
+            fetch(url).then(response => response.json()).then(data => {
                 setMovies(data.results.map(result => ({ id: result.id, title: result.title })))
             }).catch(error => console.log(error));
         }
