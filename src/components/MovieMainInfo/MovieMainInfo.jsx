@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import { MovieMainInfoStyled } from "./MovieMainInfo.styled";
 
 
-export const MovieMainInfo = ({ poster, title, score, overview, genres }) => {    
+export const MovieMainInfo = ({ poster, title, score, overview, genres }) => {
+    console.log(poster);
+    console.log(title);
 
     return (
         <MovieMainInfoStyled>
@@ -21,13 +23,11 @@ export const MovieMainInfo = ({ poster, title, score, overview, genres }) => {
     );
 }
 
-MovieMainInfo.propTypes = {
-    props: PropTypes.shape({
-        poster: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        score: PropTypes.number.isRequired,
-        overview: PropTypes.string.isRequired,
-        genres: PropTypes.string.isRequired,
-    })
+MovieMainInfo.propTypes = {    
+    poster: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.string.isRequired,  
     
 }

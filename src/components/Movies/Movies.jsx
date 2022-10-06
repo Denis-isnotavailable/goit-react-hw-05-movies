@@ -34,14 +34,14 @@ const Movies = () => {
         const value = e.target.query.value;
         setQuery(value);
         setSearchParams({ query: value });
-        e.target.query.value = "";
+        // e.target.query.value = "";
     }
 
 
     return (
         <MoviesStyled>
             <form action="" onSubmit={handleSubbmit}>
-                <input type="text" name="query" />
+                <input type="text" name="query" defaultValue={query} />
                 <button type="submit">Search</button>
             </form>
             
