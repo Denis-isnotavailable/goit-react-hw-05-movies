@@ -30,9 +30,9 @@ const Reviews = () => {
         <>
             {reviews.length > 0 ?
                 <ReviewsStyled>
-                    {reviews.map(({ author, content }) => {
+                    {reviews.map(({ author, content }, index) => {
                             return (
-                                <ReviewsItemStyled key={author}>
+                                <ReviewsItemStyled key={index}>
                                     <h2>Author: {author}</h2>
                                     <p>{content}</p>
                                 </ReviewsItemStyled>
